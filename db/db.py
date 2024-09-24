@@ -22,10 +22,10 @@ class DatabaseConnection:
     def df_cursor(self):
         self.conection = psycopg.connect(self.conn_url)
         self.conection.autocommit = True
-        self.cursor = self.conn.cursor()
+        self.cursor = self.conection.cursor()
 
         try:
-            yield self.conn
+            yield self.cursor
         finally:
             self.cursor.close()
             self.conection.close()

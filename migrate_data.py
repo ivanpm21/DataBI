@@ -25,4 +25,4 @@ def _get_query() -> str:
     '''
 
 with DatabaseConnection(get_credentials()).df_cursor() as curr:
-    curr.executemany(_get_query(), dataframe.to_numpy())
+    curr.executemany(_get_query(), dataframe.to_numpy().tolist())
