@@ -1,0 +1,18 @@
+services:
+  database:
+    image: database
+    build: ./postgresql
+    env_file: .env
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - database_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-d", "$POSTGRES_DB", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  database_data:
