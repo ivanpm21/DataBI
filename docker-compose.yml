@@ -12,6 +12,8 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    networks:
+      - data-migrate
 
   migrate:
     build: ./app
@@ -20,6 +22,12 @@ services:
       database:
         condition: service_healthy
         restart: false
+    networks:
+      - data-migrate
 
 volumes:
   database_data:
+
+networks:
+  data-migrate: 
+    driver: bridge

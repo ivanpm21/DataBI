@@ -1,10 +1,10 @@
 import pandas as pd
 
-from db.db import DatabaseConnection
+from db.database_conn import DatabaseConnection
 from db.credentials import get_credentials
 
 # Read data file
-dataframe = pd.read_csv('remote_work_productivity.csv', sep=',',thousands='.', decimal=',')
+dataframe = pd.read_csv('../data/remote_work_productivity.csv', sep=',')
 
 # Drop unused columns and renamed others for better access
 dataframe.drop('Employee_ID', axis=1, inplace=True)
@@ -14,7 +14,7 @@ dataframe.rename(columns={'Employment_Type': 'type', 'Hours_Worked_Per_Week': 'h
 # Define insertion query
 def _get_query() -> str:
     return '''
-        INSERT INTO estadisticas.poblacion_activa (
+        INSERT INTO stadistics.employees (
             job_type,
             hours_worked_per_week,
             score,

@@ -1,6 +1,6 @@
 import os
 
-from db.db import DBCredentials
+from db.database_conn import DBCredentials
 
 
 # Get credentials from env variables
