@@ -1,6 +1,5 @@
 services:
   database:
-    image: database
     build: ./postgresql
     env_file: .env
     restart: always
@@ -13,6 +12,14 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+
+  migrate:
+    build: ./app
+    env_file: .env
+    depends_on:
+      database:
+        condition: service_healthy
+        restart: false
 
 volumes:
   database_data:
