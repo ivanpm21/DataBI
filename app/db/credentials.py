@@ -3,7 +3,7 @@ import os
 from db.db import DBCredentials
 
 
-
+# Get credentials from env variables
 def get_credentials() -> DBCredentials:
     
     return DBCredentials(

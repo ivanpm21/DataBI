@@ -9,15 +9,3 @@ CREATE TABLE estadisticas.poblacion_activa
     satisfaction INT
 )
 
-
-/**
-(
-    id SERIAL PRIMARY KEY,
-    sexo CHAR(7),
-    formacion VARCHAR(150),
-    total NUMERIC(10, 3),
-    agno INT,
-    periodo INT
-)
-
-*/

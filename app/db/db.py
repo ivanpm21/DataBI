@@ -3,6 +3,7 @@ from dataclasses import dataclass
 
 import psycopg
 
+# Class for storing credentials
 @dataclass
 class DBCredentials:
     db: str
@@ -11,6 +12,7 @@ class DBCredentials:
     host: str
     port: int
 
+# Class for database connection with conext manager 
 class DatabaseConnection:
     def __init__(self, cred: DBCredentials) -> None:
         
