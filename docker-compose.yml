@@ -18,6 +18,9 @@ services:
   migrate:
     build: ./app
     env_file: .env
+    environment:
+      - POSTGRES_HOST=database
+      - POSTGRES_PORT=5432
     depends_on:
       database:
         condition: service_healthy
