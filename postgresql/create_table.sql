@@ -1,7 +1,7 @@
-CREATE SCHEMA estadisticas; 
+CREATE SCHEMA stadistics; 
 
-DROP TABLE IF EXISTS estadisticas.poblacion_activa;
-CREATE TABLE estadisticas.poblacion_activa
+DROP TABLE IF EXISTS stadistics.employees;
+CREATE TABLE stadistics.employees
 (
     job_type    VARCHAR(10),
     hours_worked_per_week INT,
